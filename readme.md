@@ -25,15 +25,21 @@ Install plugin after jQuery and you should be good to go.
 
 ## Usage
 
+Use the `pseudo` method on the parent element, whenever appropriate in your logic.
+
 Example:
 ```
-$el.pseudo("after","margin-top",axis.y +"px");
+$el.pseudo("after","margin-top", "10px");
 ```
 
 
 ## Options
 
-Currently there are no parameters for this plugin
+The options of the plugin are currently fixed, and they are the following (in order):
+
+1. pseudo selector: before, after
+2. attribute name
+3. attribute value
 
 
 ## Credits
