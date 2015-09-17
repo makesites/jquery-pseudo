@@ -102,10 +102,3 @@ var UID = {
 
 
 }));
-
-
-
-	// pseudo-style helper
-	// Example: el.pseudo("after","margin-top",axis.y +"px");
-
-	//myStyles.deleteRule(0);
