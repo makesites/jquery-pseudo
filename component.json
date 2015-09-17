@@ -1,0 +1,8 @@
+{
+	"name": "jquery-pseudo",
+	"version": "0.0.0",
+	"main": ["./jquery.pseudo.js"],
+	"dependencies": {
+		"jquery": "~2.1.4"
+	}
+}
