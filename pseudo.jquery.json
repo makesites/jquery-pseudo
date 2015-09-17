@@ -1,0 +1,37 @@
+{
+	"name": "pseudo",
+	"version": "0.0.0",
+	"title": "jQuery Pseudo",
+	"description": "Dynamically update CSS attributes of pseudo elements",
+	"keywords": [
+		"pseudo",
+		"css",
+		"before",
+		"after",
+		"styles"
+	],
+	"author": {
+		"name": "Makesites",
+		"url": "http://makesites.org"
+	},
+	"maintainers": [
+		{
+			"name": "Makis Tracend",
+			"email": "makis@makesit.es",
+			"url": "http://github.com/tracend"
+		}
+	],
+	"bugs": "https://github.com/makesites/jquery-pseudo/issues",
+	"homepage": "https://github.com/makesites/jquery-pseudo",
+	"docs": "https://github.com/makesites/jquery-pseudo/wiki",
+	"download": "http://plugins.jquery.com/pseudo",
+	"licenses": [
+		{
+		"type": "MIT License",
+		"url": "http://makesites.org/licenses/MIT"
+		}
+	],
+	"dependencies": {
+	  "jquery": "~2.1.4"
+	}
+}
