@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>jQuery: Pseudo - Follow Mouse</title>
+
+	<script type="application/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="application/javascript" src="../jquery.pseudo.js"></script>
+	<script type="application/javascript">
+		$(function(){
+
+			//
+			var $el = $("#test");
+
+			$el.on("mousedown", function(){
+				$el.data("pressed", true);
+			});
+
+			$el.on("mouseup", function(){
+				$el.data("pressed", false);
+			});
+
+			$el.on("mousemove", function( event ){
+				if( !$el.data("pressed") ) return;
+				//
+				var coords = {
+					x: event.offsetX,
+					y: event.offsetY
+				};
+				// move before element
+				$el.pseudo("before", "margin-top", coords.y - $el.height()/2 +"px");
+				$el.pseudo("before", "margin-left", coords.x - $el.width()/2 +"px");
+				/*
+				$el.pseudo("after", {
+					"margin-top": coords.x +"px",
+					"margin-left": coords.y +"px"
+				});
+				*/
+			});
+
+		});
+
+	</script>
+
+	<style>
+		#test {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			background: #f00;
+		}
+
+		#test:before {
+			position:absolute;
+			display: block;
+			content: "\2665";
+			font-size: 200px;
+			text-align: center;
+			width: 200px;
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+
+<h2>Follow Mouse</h2>
+<p>Drag the mouse inside the red square to move the :before character.</p>
+
+<div id="test"></div>
+
+
+</body>
+</html>
