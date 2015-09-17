@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>jQuery: Pseudo - Example</title>
+
+	<script type="application/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="application/javascript" src="../jquery.pseudo.js"></script>
+	<script type="application/javascript">
+		$(function(){
+
+			//
+			var $el = $(".test");
+
+			$el.on("mousedown", function(){
+
+				var coords = {
+					x: event.offsetX,
+					y: event.offsetY
+				};
+				// move after element
+				$el.pseudo("after", "margin-top", coords.y - $el.height()/2 +"px");
+				$el.pseudo("after", "margin-left", coords.x - $el.width()/2 +"px");
+				$el.addClass("ripple");
+
+			});
+			// wait for effect to end
+			$el.on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function(){
+				$el.removeClass("ripple");
+			});
+			/*
+			$el.on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', function(){
+				$el.removeClass("ripple");
+				$el.pseudo("after", "opacity", 0);
+			});
+			*/
+		});
+
+	</script>
+
+	<style>
+		.test {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			background: #f00;
+			overflow: hidden;
+		}
+
+		.test:after {
+			position: absolute;
+			display: block;
+			content: " ";
+			width: 200px;
+			height: 200px;
+			background-image: -webkit-radial-gradient(50% 50%, circle closest-side, rgb(255, 255, 255), rgba(255, 255, 255, 0) 60%);
+			background-image: -moz-radial-gradient(50% 50%, circle closest-side, rgb(255, 255, 255), rgba(255, 255, 255, 0) 60%);
+			background-image: radial-gradient(50% 50%, circle closest-side, rgb(255, 255, 255), rgba(255, 255, 255, 0) 60%);
+			opacity: 0;
+		}
+
+		.test.ripple:after {
+			/*
+			-webkit-transition: opacity .5s eas;
+			transition: opacity .5s;
+			opacity: 0;
+			*/
+			-webkit-animation: ripple .5s 1; /* Safari 4+ */
+			-moz-animation:	ripple .5s 1; /* Fx 5+ */
+			-o-animation:	  ripple .5s 1; /* Opera 12+ */
+			animation:		 ripple .5s 1; /* IE 10+, Fx 29+ */
+		}
+
+		/* Zero animation */
+		@keyframes ripple {
+			0% {
+				opacity: 0;
+			}
+			10% {
+				opacity: 0.5;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<h2>Ripple effect</h2>
+<p>Click anywhere on the to move the ripple effect (hosted in an :after element) under the cursor.</p>
+
+
+<div class="test"></div>
+
+
+</body>
+</html>
